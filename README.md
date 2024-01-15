@@ -1,70 +1,93 @@
-<p align="center">
-  <img src="./packages/branding/RGB SVG (For Digital Use)/Taiko Icon/taiko-icon-blk.svg" width="80" alt="Logo for Taiko" />
-</p>
+Taiko Alpha-6 (A6) Katla Testnet’ine Giriş : https://medium.com/@TraderOzy/taiko-alpha-6-a6-katla-testnetine-giri%C5%9F-d9e7cbc1e2d6
 
-<h1 align="center">
-  Taiko
-</h1>
+Taiko’ya göre Katla şu ana kadar sahip olduğu en önemli test ağıdır.
 
-<p align="center">
-  A decentralized, Ethereum-equivalent ZK-Rollup.
-</p>
+Ne var ne yok?
+İşte Katla’daki yenilikler:
 
-<div align="center">
+Implemented Based Contestable Rollup (BCR), multi-proofs and SGX ile birlikte tasarımı.
+Güncellenmiş köprü uygulaması, iyileştirilmiş köprü kullanıcı arayüzü ve yeni bir özellik: NFT köprüleme!
+Blok gezgini ve durum sayfasında testnet istatistikleri güncellendi.
+BCR uygulaması
+Katla, Eylül 2023'te Singapur’daki TOKEN2049'da tanıttığı bir toplama tasarımı olan Based Contestable Rollup (BCR)’ yi uyguluyor. Katla ile dört katmanlı çoklu prova yapılandırmasını etkinleştiriyoruz: Aşağıda gösterildiği gibi iyimser provalar, SGX provaları, SGX+zkEVM provaları ve koruyucu provalar.
 
-[![Twitter Follow](https://img.shields.io/twitter/follow/taikoxyz?style=social)](https://twitter.com/taikoxyz)
-[![Discord](https://img.shields.io/discord/984015101017346058?color=%235865F2&label=Discord&logo=discord&logoColor=%23fff)](https://discord.gg/taikoxyz)
-[![YouTube](https://img.shields.io/youtube/channel/subscribers/UCxd_ARE9LtAEdnRQA6g1TaQ)](https://www.youtube.com/@taikoxyz)
-[![GitPOAP Badge](https://public-api.gitpoap.io/v1/repo/taikoxyz/taiko-mono/badge)](https://www.gitpoap.io/gh/taikoxyz/taiko-mono)
-[![License](https://img.shields.io/github/license/taikoxyz/taiko-mono)](https://github.com/taikoxyz/taiko-mono/blob/main/LICENSE.md)
 
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/taikoxyz/taiko-mono/protocol.yml?branch=main&label=Protocol&logo=github)](https://github.com/taikoxyz/taiko-mono/actions/workflows/protocol.yml)
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/taikoxyz/taiko-mono/relayer.yml?branch=main&label=Relayer&logo=github)](https://github.com/taikoxyz/taiko-mono/actions/workflows/relayer.yml)
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/taikoxyz/taiko-mono/bridge-ui-v2.yml?branch=main&label=Bridge%20UI&logo=github)](https://github.com/taikoxyz/taiko-mono/actions/workflows/bridge-ui.yml)
+BCR ve Taiko’nun çoklu prova tasarımı hakkında daha fazla bilgi edinmek için lütfen bu blog yazısını okuyun .
 
-</div>
+Üstelik Katla’nın kodu EIP-4844'ü (proto-danksharding) destekliyor ancak bu özellik kapalı. Temel katman (Holesky) EIP-4844 ile sert çatallandığında, işlem maliyetlerini azaltmak amacıyla veri kullanılabilirliği için blobların kullanımını etkinleştirmek üzere muhtemelen bir yükseltme gerçekleştirecekler.
 
-## Documentation
+Sonuç olarak, Katla hâlâ tabanlı bir toplama ve Jólnir (Alpha-5) test ağında olduğu gibi tamamen aynı tokenomik tasarıma sahip bir tip-1 ZK-EVM’dir. Başka bir deyişle, uygulamanız herhangi bir değişiklik yapılmadan kutudan çıktığı gibi çalışmalıdır.
 
-Documentation can be found on the website at [taiko.xyz](https://taiko.xyz). There is also a README in each package, as well as comments in the source code.
+Güncellenmiş köprü
+Ayrıca köprü kontratındaki birkaç hatayı da düzelttiler. Köprü uygulaması da yeniden uygulandı ve NFT token köprüleme artık etkinleştirildi. Hedef zincirdeki köprülü operasyonunuz başarısız olursa artık kaynak zincirindeki köprülü varlığınızı geri talep edebilirsiniz. Tam bir değişiklik günlüğünü burada bulabilirsiniz ve köprüye buradan ulaşılabilirsiniz.
 
-## Project structure
+Yukarıda ayrıntıları verilen büyük güncellemelerin yanı sıra, kullanıcılar, her zaman olduğu gibi, Taiko’da dağıtılan çeşitli dapp’leri kullanabilecek , sözleşmeleri dağıtabilecek, bir düğüm çalıştırabilecek, blok önerebilecek ve blokları kanıtlayabilecek; üstelik bunların tümünü izinsiz olarak yapabilecekler.
 
-<pre>
-taiko-mono/
-├── <a href="./CHANGELOG.md">CHANGELOG.md</a>
-├── <a href="./CONTRIBUTING.md">CONTRIBUTING.md</a>
-├── <a href="./LICENSE.md">LICENSE.md</a>
-├── <a href="./README.md">README.md</a>
-├── <a href="./packages">packages</a>
-│   ├── <a href="./packages/branding">branding</a>: Taiko branding materials.
-│   ├── <a href="./packages/bridge-ui-v2">bridge-ui-v2</a>: Taiko bridge frontend UI v2.
-│   ├── <a href="./packages/eventindexer">eventindexer</a>: Event indexer.
-│   ├── <a href="./packages/fork-diff">fork-diff</a>: Fork <a href="https://geth.taiko.xyz">diff page</a> (currently, for Geth).
-│   ├── <a href="./packages/protocol">protocol</a>: Taiko protocol and bridge smart contracts.
-│   ├── <a href="./packages/relayer">relayer</a>: Bridge backend relayer in Go.
-│   └── <a href="./packages/starter-dapp">starter-dapp</a>: Template for Taiko dapps.
-...
-</pre>
+Güncellenmiş blok gezgini
+Katla ayrıca yeni test ağı istatistiklerine sahip güncellenmiş bir blok gezginine de sahiptir.
 
-## Issues
+Örneğin, artık en son canlılık bağının ne olduğunu, hangi kanıt katmanıyla kaç geçişin kanıtlandığını ve diğer istatistikleri görebilirsiniz.
 
-If you find a bug or have a feature request, please [open an issue](https://github.com/taikoxyz/taiko-mono/issues/new/choose).
 
-## Contributing
+Katla blok gezginini burada bulabilirsiniz.
 
-Check out [CONTRIBUTING.md](./CONTRIBUTING.md) for details on how to contribute.
+Peki ya Jólnir (A5)?
+Jólnir 31 Ocak 2024'te kullanımdan kaldırılacak.
 
-## Get help
+Sıradaki ne?
+Yaklaşan ana ağ lansmanımızın temelini oluşturduğu için Katla’nın şu ana kadar sahip olduğumuz en önemli test ağı olduğunu vurgulamak istiyoruz . Bu nedenle, yarışma ve SGX kanıtı oluşturma gibi yeni özellikleri kapsamlı bir şekilde test ettiğimizden emin olmamız gerekiyor.
 
-Reach out to the community on [Discord](https://discord.gg/taikoxyz) to get help.
+İşte burada siz, yani topluluk devreye giriyor. Yarışma oyununa katılmaktan, node çalıştırmaya ve takas yapmaya kadar, Katla ile ne şekilde etkileşimde olursanız olun, ana ağa girdiğimizde hiçbir sürprizle karşılaşmamamızı ve her şeyin amaçlandığı gibi çalışmasını sağlamamıza yardımcı oluyor.
 
-## Contributors ✨
+Yeni gelecekleri test etmemize yardımcı olduğunuz ve böylece Taiko’nun geleceğinde büyük rol oynadığınız için şimdiden teşekkür etmek istiyoruz. Taiko ≡ Topluluk . 🫶
 
-Thanks goes to these wonderful people!
+Şimdi Testnet İçin Neler Yapabiliriz Gelin Başlayalım.
+Öncelikle şuraya gidelim ve sağ üstten cüzdanımızı bağlayıp Holesky ve Katla ağlarını cüzdanımıza ekleyelim: https://bridge.katla.taiko.xyz/
+Manuel olarak eklemek için: https://docs.taiko.xyz/guides/set-up-your-wallet
 
-<a href="https://github.com/taikoxyz/taiko-mono/graphs/contributors">
-  <p align="center">
-    <img width="720" src="https://contrib.rocks/image?repo=taikoxyz/taiko-mono" />
-  </p>
-</a>
+Şimdi sol taraftan “Faucet” kısmını seçip Holesky ağı üzerinde $HORSE tokenını mintleyelim.
+
+Holesky ağında tokena sahip değilseniz işte sizin için “Faucet”:
+holesky-faucet.pk910.de
+
+https://bwarelabs.com/faucets/ethereum-holesky
+
+Ardından ana sitemizde “Bridge” kısmına geri dönüp elimizde bulunan tokenları Katla ağına köprüleyelim.
+
+Şimdi NFT köprülemesi gerçekleştireceğiz ama öncelikle bir NFT’ye sahip olmalıyız. Şuraya gidelim ve 1 tane NFT mitleyelim: https://taiko-katla-alpha-6-testnet-nft.testnet.nfts2.me/
+
+Ardından mintlediğimiz NFT’nin üzerine tıklayalım EVM cüzdanımıza ekleyelim.
+
+Artık cüzdanımızda gözüküyor.
+
+NFT’imizin üzerine tıklayıp sözleşme adresini kopyalayalım.
+
+Ana sitemize geri dönüp NFT kısmına girip sözleşmeyi yapıştıralım.
+
+
+
+Şimdi Katla ağına geçelim ve bu gerçekleştirdiğimiz işlemlerin hepsini Katla ağı üzerinde de yapalım.
+Ayrıca “Transactions” kısmında “Claim” yapmayı unutmayalım.
+
+Okuduğunuz için teşekkürler. Şimdilik yapacaklarımız bu kadardı. Bana ufakta olsa destek sağladığınız için teşekkür ederim. Sağladığınız en ufak destek ile beraber içerik üretmeye yönelik motivasyonum artacaktır. Böylece kendi gelişimime de yardımcı olacağım. Kendinize iyi bakın. Sağlıcakla kalın.
+Benimle Twitter üzerinden iletişime geçmek isterseniz: https://twitter.com/TraderOzy
+
+Lens Protocol üzerinden iletişime geçmek isterseniz: https://hey.xyz/u/ozymandias
+
+— — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+
+Projeye ait;
+
+Resmi Sitesi: https://taiko.xyz.
+
+Twitter: https://twitter.com/taikoxyz.
+
+Docs: https://docs.taiko.xyz.
+
+GitHub: https://github.com/taikoxyz.
+
+Discord: https://discord.gg/taikoxyz.
+
+Community forum: https://community.taiko.xyz.
+
+Youtube: https://www.youtube.com/@taikoxyz.
